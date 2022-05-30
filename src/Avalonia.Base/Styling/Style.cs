@@ -44,7 +44,7 @@ namespace Avalonia.Styling
             }
         }
 
-        protected override SelectorMatch Matches(IStyleable target, IStyleHost? host)
+        protected override SelectorMatch Matches(IStyleable target, object? host)
         {
             return Selector?.Match(target, Parent) ??
                 (target == host ?

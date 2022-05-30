@@ -12,7 +12,7 @@ namespace Avalonia.Controls.Primitives
     /// <summary>
     /// A lookless control whose visual appearance is defined by its <see cref="Template"/>.
     /// </summary>
-    public class TemplatedControl : Control, ITemplatedControl
+    public class TemplatedControl : Control, IThemed, ITemplatedControl
     {
         /// <summary>
         /// Defines the <see cref="Background"/> property.
@@ -86,6 +86,11 @@ namespace Avalonia.Controls.Primitives
         public static readonly StyledProperty<IControlTemplate?> TemplateProperty =
             AvaloniaProperty.Register<TemplatedControl, IControlTemplate?>(nameof(Template));
 
+        /// <summary>
+        /// Defines the <see cref="Theme"/> property.
+        /// </summary>
+        public static readonly StyledProperty<ControlTheme> ThemeProperty =
+            AvaloniaProperty.Register<TemplatedControl, ControlTheme>(nameof(Theme));
         /// <summary>
         /// Defines the IsTemplateFocusTarget attached property.
         /// </summary>
@@ -226,6 +231,15 @@ namespace Avalonia.Controls.Primitives
         {
             get { return GetValue(TemplateProperty); }
             set { SetValue(TemplateProperty, value); }
+        }
+
+        /// <summary>
+        /// Gets or sets the theme to be applied to the control.
+        /// </summary>
+        public ControlTheme Theme
+        {
+            get { return GetValue(ThemeProperty); }
+            set { SetValue(ThemeProperty, value); }
         }
 
         /// <summary>

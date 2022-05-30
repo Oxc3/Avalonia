@@ -68,7 +68,7 @@ namespace Avalonia.Styling
 
         public event EventHandler? OwnerChanged;
 
-        public SelectorMatchResult TryAttach(IStyleable target, IStyleHost? host)
+        public SelectorMatchResult TryAttach(IStyleable target, object? host)
         {
             target = target ?? throw new ArgumentNullException(nameof(target));
 
@@ -105,7 +105,7 @@ namespace Avalonia.Styling
             return _resources?.TryGetResource(key, out result) ?? false;
         }
 
-        protected abstract SelectorMatch Matches(IStyleable target, IStyleHost? host);
+        protected abstract SelectorMatch Matches(IStyleable target, object? host);
 
         internal virtual void SetParent(StyleBase? parent) => Parent = parent;
 
